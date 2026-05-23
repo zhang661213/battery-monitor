@@ -1,26 +1,156 @@
-# battery-monitor
+# ⚡ 电脑检测器 (Computer Power & Time Detector)
 
-A lightweight Windows battery level monitor with a floating desktop widget.
+> 🚀 **一款基于 Python + tkinter 开发的 Windows 桌面工具，集「电量检测」与「时间查看」于一体，拥有炫酷的动画效果和极致的用户体验。**
 
-## Features
+---
 
-- Real-time battery percentage display
-- Floating widget positioned at screen corner
-- Low battery alert notifications
+## ✨ 核心功能
 
-## Requirements
+### 🔋 智能电量检测
+- **实时电池状态获取**：通过 Windows WMI 接口精准读取电池剩余电量
+- **炫酷进度动画**：模拟"大模型计算"的渐进式进度条，从蓝色渐变到青色，视觉体验拉满
+- **智能状态提示**：检测完成后自动弹出结果对话框，清晰展示当前电量百分比
+- **防重复点击机制**：检测过程中按钮自动禁用，避免误操作
 
-- Windows OS
-- Python 3.x
-- tkinter
+### 🕐 时间查看器
+- **实时时间显示**：一键获取当前系统时间，精确到秒
+- **日期同步展示**：同时显示完整日期信息（年月日）
+- **屏幕箭头指引**：点击后生成全屏透明箭头，从应用中心指向屏幕右下角系统时钟，并附带闪烁动画
+- **5秒自动关闭**：箭头窗口5秒后自动消失，不干扰正常使用
 
-## Usage
+---
 
-`ash
+## 🎨 设计亮点
+
+| 特性 | 说明 |
+|------|------|
+| 🌙 **深色主题** | 采用 `#1a1a2e` 深色背景，护眼且高级 |
+| 🎨 **渐变色彩** | 进度条从蓝到青的平滑渐变，视觉层次丰富 |
+| ✨ **动画效果** | 进度条递增、箭头闪烁、圆圈脉动，处处有细节 |
+| 🎯 **精准定位** | 箭头自动计算屏幕分辨率，精准指向任务栏时钟位置 |
+| 🖱️ **交互友好** | 按钮悬停变色、手型光标、扁平化设计 |
+
+---
+
+## 🛠️ 技术栈
+
+- **Python 3.x** — 核心编程语言
+- **tkinter** — GUI 界面框架（无需额外安装）
+- **ctypes** — 调用 Windows API 获取屏幕分辨率
+- **subprocess** — 执行 WMIC 命令读取电池信息
+- **PyInstaller** — 打包为独立可执行文件
+
+---
+
+## 📦 项目结构
+
+```
+电量查看器/
+├── main.py              # 🎯 主程序源码（200+ 行精心编写的 Python 代码）
+├── 电量查看器.spec      # 📋 PyInstaller 打包配置文件
+├── build/               # 🔧 编译中间文件
+│   └── 电量查看器/
+│       ├── Analysis-00.toc
+│       ├── EXE-00.toc
+│       ├── PKG-00.toc
+│       ├── PYZ-00.pyz
+│       ├── base_library.zip
+│       └── ...
+└── dist/                # 🚀 发布目录
+    └── 电量查看器.exe   # ✅ 可直接运行的 Windows 可执行文件
+```
+
+---
+
+## 🚀 快速开始
+
+### 方式一：直接运行（推荐）
+进入 `dist/` 目录，双击运行：
+```
+电量查看器.exe
+```
+
+### 方式二：源码运行
+```bash
+# 克隆仓库
+git clone https://github.com/zhang661213/battery-monitor.git
+
+# 进入目录
+cd battery-monitor
+
+# 运行源码
 python main.py
-``n
-## Build
+```
 
-`ash
+### 方式三：重新打包
+```bash
+# 安装 PyInstaller
+pip install pyinstaller
+
+# 打包为单文件可执行程序
 pyinstaller --onefile --windowed main.py
-``n
+```
+
+---
+
+## 💡 使用场景
+
+| 场景 | 功能 |
+|------|------|
+| 💻 **笔记本用户** | 快速查看电池剩余电量，避免突然断电 |
+| ⏰ **全屏工作时** | 一键查看时间，无需退出当前应用 |
+| 🎓 **新手学习** | 学习 tkinter GUI 开发、Windows API 调用的优秀案例 |
+| 🎨 **UI 设计参考** | 深色主题、动画效果、交互设计的实践范例 |
+
+---
+
+## 🖥️ 系统要求
+
+- **操作系统**：Windows 7/8/10/11
+- **架构**：x86 / x64
+- **依赖**：无需额外安装 Python 环境（使用打包版）
+
+---
+
+## 📝 更新日志
+
+### v1.0.0 (2026-05-23)
+- ✅ 初始版本发布
+- ✅ 实现电量检测功能
+- ✅ 实现时间查看功能
+- ✅ 添加全屏箭头指引动画
+- ✅ 完成 PyInstaller 打包
+
+---
+
+## 🤝 贡献指南
+
+欢迎提交 Issue 和 Pull Request！
+
+1. Fork 本仓库
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开一个 Pull Request
+
+---
+
+## 📄 开源协议
+
+本项目基于 [MIT License](LICENSE) 开源。
+
+---
+
+## 🙏 致谢
+
+- 感谢 Python 社区提供的强大生态
+- 感谢 tkinter 让 GUI 开发如此简单
+- 感谢每一位用户的支持与反馈
+
+---
+
+> 💬 **温馨提示**：本项目为个人学习作品，代码开源仅供学习交流使用。
+
+---
+
+**⭐ 如果这个项目对你有帮助，请给个 Star 支持一下！**
